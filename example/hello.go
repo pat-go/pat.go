@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/bmizerany/pat.go"
+	"github.com/pat-go/pat.go"
 	"io"
 	"net/http"
 )
@@ -9,7 +9,7 @@ import (
 func main() {
 	m := pat.New()
 	m.Get("/hello/:name", http.HandlerFunc(hello))
-	m.Get("/splat/*", http.HandlerFunc(splat))
+	m.Get("/splat/", http.HandlerFunc(splat))
 	http.ListenAndServe("localhost:5000", m)
 }
 
